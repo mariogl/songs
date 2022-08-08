@@ -10,7 +10,7 @@ export const getBands = async (
   try {
     const bands = await Band.find();
 
-    res.status(200).send({ bands });
+    res.status(200).json({ bands });
   } catch (error) {
     next(error);
   }
@@ -24,9 +24,7 @@ export const addBand = async (
   try {
     const { name } = req.body;
 
-    const band = new Band({ name });
-
-    await band.save();
+    const band = await Band.create({ name });
 
     res.status(201).send({ band });
   } catch (error) {

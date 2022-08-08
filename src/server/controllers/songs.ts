@@ -11,7 +11,7 @@ export const getSongs = async (
   try {
     const songs = await Song.find().populate("band");
 
-    res.status(200).send({ songs });
+    res.status(200).json({ songs });
   } catch (error) {
     next(error);
   }
@@ -32,7 +32,7 @@ export const getSong = async (
       return;
     }
 
-    res.status(200).send({ song });
+    res.status(200).json({ song });
   } catch (error) {
     next(error);
   }
@@ -46,11 +46,9 @@ export const addSong = async (
   try {
     const { title, band } = req.body;
 
-    const song = new Song({ title, band });
+    const song = await Song.create({ title, band });
 
-    await song.save();
-
-    res.status(201).send({ song });
+    res.status(201).json({ song });
   } catch (error) {
     (error as ErrorWithStatus).status = 400;
     next(error);
