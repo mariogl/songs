@@ -6,7 +6,7 @@ import chalk from "chalk";
 const debug = Debug("songs:middlewares:errors");
 
 export const notFoundError = (req: Request, res: Response) => {
-  res.status(404).send({ error: "Endpoint not found" });
+  res.status(404).json({ error: "Endpoint not found" });
 };
 
 export const generalError = (
@@ -17,5 +17,5 @@ export const generalError = (
   next: NextFunction
 ) => {
   debug(chalk.red(`💥 Error: ${error.message}`));
-  res.status(500).send({ error: "General pete" });
+  res.status(500).json({ error: "General pete" });
 };
