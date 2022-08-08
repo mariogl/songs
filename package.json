@@ -6,7 +6,8 @@
   "scripts": {
     "ts": "tsc",
     "ts-dev": "tsc -w",
-    "test": "jest src --watchAll",
+    "test": "jest src",
+    "test-dev": "jest src --watchAll",
     "test-coverage": "jest src --coverage --watchAll=false",
     "start": "node dist",
     "start-dev": "nodemon dist -q",
