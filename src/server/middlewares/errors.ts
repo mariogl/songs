@@ -16,6 +16,7 @@ export const generalError = (
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   _next: NextFunction
 ) => {
+  console.log("EREEEERRROOOERRROOORRRRR", error.message);
   debug(chalk.red(`💥 Error: ${error.message}`));
   res.status(500).json({ error: "General pete" });
 };

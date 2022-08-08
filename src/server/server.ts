@@ -5,27 +5,12 @@ import { generalError, notFoundError } from "./middlewares/errors";
 import bandsRouter from "./routers/bandsRouter";
 import songsRouter from "./routers/songsRouter";
 
-const allowedOrigins = [
-  process.env.ALLOWED_ORIGIN_LOCAL,
-  process.env.ALLOWED_ORIGIN_PRODUCTION,
-];
-
 const app = express();
 
 app.disable("x-powered-by");
 
 app.use(morgan("dev"));
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-  })
-);
+app.use(cors());
 app.use(express.json());
 
 app.use("/bands", bandsRouter);
