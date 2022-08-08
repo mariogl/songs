@@ -12,4 +12,16 @@ describe("Given a customError function", () => {
       expect(error.message).toBe(errorMessage);
     });
   });
+
+  describe("When it's called with a message 'blah' and no status code", () => {
+    test("Then it should return an error with status 500 and message 'blah'", () => {
+      const errorMessage = "blah";
+      const errorStatus = 500;
+
+      const error = customError(errorMessage);
+
+      expect(error.status).toBe(errorStatus);
+      expect(error.message).toBe(errorMessage);
+    });
+  });
 });
