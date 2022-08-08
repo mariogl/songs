@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import Song from "../../database/models/Song";
 import { ErrorWithStatus } from "../../types/errors";
-import { customError } from "../utils/errors";
+import customError from "../utils/errors";
 
 export const getSongs = async (
   req: Request,
@@ -28,7 +28,8 @@ export const getSong = async (
     const song = await Song.findById(id).populate("band");
 
     if (!song) {
-      return next(customError("Song not found", 404));
+      next(customError("Song not found", 404));
+      return;
     }
 
     res.status(200).send({ song });

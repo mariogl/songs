@@ -1,7 +1,7 @@
 import "../loadEnvironment";
 import Debug from "debug";
-import app from "./server";
 import chalk from "chalk";
+import app from "./server";
 import { ErrorWithCode } from "../types/errors";
 
 const debug = Debug("songs:server:index");
