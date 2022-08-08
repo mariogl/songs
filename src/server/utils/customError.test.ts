@@ -1,4 +1,4 @@
-import customError from "./errors";
+import customError from "./customError";
 
 describe("Given a customError function", () => {
   describe("When it's called with a message 'tot petat' and status 403", () => {

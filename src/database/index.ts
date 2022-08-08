@@ -10,7 +10,7 @@ const connectDB = async (mongoUri: string) => {
     mongoose.set("debug", true);
     mongoose.set("toJSON", {
       virtuals: true,
-      transform: (doc, ret) => {
+      transform: (_doc, ret) => {
         // eslint-disable-next-line no-underscore-dangle, no-param-reassign
         delete ret._id;
         // eslint-disable-next-line no-underscore-dangle, no-param-reassign

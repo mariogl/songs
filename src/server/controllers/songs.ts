@@ -1,10 +1,10 @@
 import { NextFunction, Request, Response } from "express";
 import Song from "../../database/models/Song";
 import { ErrorWithStatus } from "../../types/errors";
-import customError from "../utils/errors";
+import customError from "../utils/customError";
 
 export const getSongs = async (
-  req: Request,
+  _req: Request,
   res: Response,
   next: NextFunction
 ) => {

@@ -2,8 +2,8 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import { generalError, notFoundError } from "./middlewares/errors";
-import bandsRouter from "./routers/bands";
-import songsRouter from "./routers/songs";
+import bandsRouter from "./routers/bandsRouter";
+import songsRouter from "./routers/songsRouter";
 
 const allowedOrigins = [
   process.env.ALLOWED_ORIGIN_LOCAL,
@@ -11,6 +11,8 @@ const allowedOrigins = [
 ];
 
 const app = express();
+
+app.disable("x-powered-by");
 
 app.use(morgan("dev"));
 app.use(

@@ -3,7 +3,7 @@ import Band from "../../database/models/Band";
 import { ErrorWithStatus } from "../../types/errors";
 
 export const getBands = async (
-  req: Request,
+  _req: Request,
   res: Response,
   next: NextFunction
 ) => {

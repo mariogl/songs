@@ -5,13 +5,13 @@ import chalk from "chalk";
 
 const debug = Debug("songs:middlewares:errors");
 
-export const notFoundError = (req: Request, res: Response) => {
+export const notFoundError = (_req: Request, res: Response) => {
   res.status(404).json({ error: "Endpoint not found" });
 };
 
 export const generalError = (
   error: Error,
-  req: Request,
+  _req: Request,
   res: Response,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   next: NextFunction

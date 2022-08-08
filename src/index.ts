@@ -4,7 +4,7 @@ import initializeServer from "./server";
 import connectDB from "./database";
 
 const port = +process.env.PORT ?? 4000;
-const mongoString = process.env.MONGO_CONNECTION as string;
+const mongoString = process.env.MONGO_CONNECTION;
 
 (async () => {
   try {
